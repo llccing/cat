@@ -4,7 +4,7 @@
 
 ## 预览
 
-![二维码](https://github.com/llccing/cat/tree/master/dist/static/img/erweima.png)
+![二维码](https://github.com/llccing/cat/blob/master/dist/static/img/erweima.png?raw=true)
 
 ## Build Setup
 
