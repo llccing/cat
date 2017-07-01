@@ -2,6 +2,10 @@
 
 > a wechat project for lover
 
+## 预览
+
+![二维码](https://github.com/llccing/cat/tree/master/dist/static/img/erweima.png)
+
 ## Build Setup
 
 ``` bash
@@ -30,3 +34,5 @@ npm test
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 # meiling, My Love
+
+
