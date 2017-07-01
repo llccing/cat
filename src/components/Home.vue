@@ -1,27 +1,33 @@
 <template>
   <div class="list">
+    <Swiper :list="baseList" :interval="interval" auto="auto"></Swiper>
+    <divider>~~~~</divider>
+
     <div class="head">
       <img src="../assets/img/resume-girl.jpg" alt="头像">
-    </div>
-
-    <divider>~~我是美玲~~</divider>
-
-    <div class="weui-panel weui-panel_access">
-      <div class="weui-panel__hd">我的信息</div>
-      <div class="weui-panel__bd">
-        <div class="weui-media-box weui-media-box_text">
-          <h4 class="weui-media-box__title">教育经历</h4>
-          <p class="weui-media-box__desc">2010/09 -- 2014/07</p>
-          <p class="weui-media-box__desc"><strong>齐齐哈尔建设职工大学|工商管理|本科|非统招</strong></p>
-        </div>
+      <div class="middle">
+        <img class="middle" src="../assets/img/heart.png" alt="头像">
       </div>
+      <img src="../assets/img/resume-boy.jpg" alt="头像">
     </div>
-
   </div>
 </template>
 
 <script>
-import { Group, Cell, Grid, GridItem, Divider, Panel, Card } from 'vux'
+import { Group, Cell, Grid, GridItem, Divider, Panel, Card, Swiper } from 'vux'
+const baseList = [{
+  url: 'javascript:',
+  img: 'https://static.vux.li/demo/1.jpg',
+  title: '送你一朵fua'
+}, {
+  url: 'javascript:',
+  img: 'https://static.vux.li/demo/2.jpg',
+  title: '送你一辆车'
+}, {
+  url: 'javascript:',
+  img: 'https://static.vux.li/demo/3.jpg',
+  title: '送你一次旅行'
+}]
 
 export default {
   components: {
@@ -31,7 +37,8 @@ export default {
     GridItem,
     Divider,
     Panel,
-    Card
+    Card,
+    Swiper
   },
   data () {
     return {
@@ -53,7 +60,10 @@ export default {
       footer: {
         url: 'http://www.baidu.com',
         title: 'baidu'
-      }
+      },
+      baseList,
+      auto: true,
+      interval: 3000
     }
   }
 }
@@ -63,11 +73,19 @@ export default {
 <style scoped lang="less">
   .head{
     text-align: center;
-    img{
+    > img{
       width: 5rem;
       height: 5rem;
       border: 1px solid #ccc;
       border-radius: 50% 50%;
+    }
+  }
+
+  .middle{
+    img{
+      width: 3rem;
+      height: 3rem;
+      vertical-align: middle;
     }
   }
 

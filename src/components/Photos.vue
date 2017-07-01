@@ -1,19 +1,12 @@
 <template>
-  <div>
-	<card>
-     <img slot="header" src="http://placeholder.qiniudn.com/640x300">
-      <div slot="content" class="card-padding">
-        <p class="p1">Posted on January 21, 2015</p>
-        <p class="p2">Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit..</p>
-      </div>
-    </card>
-	<card>
-     <img slot="header" src="http://placeholder.qiniudn.com/640x300">
-      <div slot="content" class="card-padding">
-        <p class="p1">Posted on January 21, 2015</p>
-        <p class="p2">Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit..</p>
-      </div>
-    </card>
+  <div class="photos">
+          <card v-for="item in img" :key="item.date">
+              <img slot="header" :src="item.url">
+              <div slot="content" class="card-padding">
+                  <p class="p1">{{item.date}}</p>
+                  <p class="p2">{{item.desc}}</p>
+              </div>
+          </card>
 	</div>
 </template>
 
@@ -26,10 +19,59 @@
     },
     data () {
       return {
-        msg: 'time'
+        img: [{
+          url: '../static/img/1.jpg',
+          date: '拍摄与 2017年7月1日',
+          desc: `我希望，她和我一样，
+                  胸中有血，心头有伤。
+                  不要什么花好月圆，
+                  不要什么笛短箫长。
+
+                  要穷，穷得象茶，
+                  苦中一缕清香，
+                  要傲，傲得象兰，
+                  高挂一脸秋霜。
+                  我们一样，就敢在暗夜里，
+                  徘徊在白色的坟场，
+                  去倾听鸱鸺的惨笑，
+                  追逐那飘移的荧光。 `
+        }, {
+          url: '../static/img/1.jpg',
+          date: '拍摄与 2017年7月1日',
+          desc: `我希望，她和我一样，
+                  胸中有血，心头有伤。
+                  不要什么花好月圆，
+                  不要什么笛短箫长。
+
+                  要穷，穷得象茶，
+                  苦中一缕清香，
+                  要傲，傲得象兰，
+                  高挂一脸秋霜。
+                  我们一样，就敢在暗夜里，
+                  徘徊在白色的坟场，
+                  去倾听鸱鸺的惨笑，
+                  追逐那飘移的荧光。 `
+        }, {
+          url: '../static/img/1.jpg',
+          date: '拍摄与 2017年7月1日',
+          desc: `我希望，她和我一样，
+                  胸中有血，心头有伤。
+                  不要什么花好月圆，
+                  不要什么笛短箫长。
+
+                  要穷，穷得象茶，
+                  苦中一缕清香，
+                  要傲，傲得象兰，
+                  高挂一脸秋霜。
+                  我们一样，就敢在暗夜里，
+                  徘徊在白色的坟场，
+                  去倾听鸱鸺的惨笑，
+                  追逐那飘移的荧光。 `
+        }]
       }
     }
   }
+
 </script>
 
 <style scoped>
