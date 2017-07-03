@@ -32,6 +32,7 @@
             <cell title="丫头简历" is-link link="/GirlResume" @click.native="showLeft=false"></cell>
             <cell title="我的简历" is-link link="/BoyResume" @click.native="showLeft=false"></cell>
             <cell title="照片墙" value="love" is-link link="/Photos" @click.native="showLeft=false"></cell>
+            <cell title="Game" is-link link="/Game" @click.native="showLeft=false"></cell>
           </Group>
         </div>
       </popup>

@@ -8,6 +8,7 @@ import App from './App'
 import Hello from '@/components/Hello'
 import List from '@/components/List'
 import Home from '@/components/Home'
+import Game from '@/components/Game'
 import GirlResume from '@/components/GirlResume'
 import BoyResume from '@/components/BoyResume'
 import Photos from '@/components/Photos'
@@ -56,6 +57,9 @@ const routes = [{
     }, {
       path: 'BoyResume',
       component: BoyResume
+    }, {
+      path: 'Game',
+      component: Game
     }
   ]
 }]
