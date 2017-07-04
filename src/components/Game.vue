@@ -1,10 +1,11 @@
 <template>
   <div class="game">
-    <!--<img class="money" src="../../static/img/money.png" alt="money">-->
+    <img src="../../static/img/money.png" alt="money" class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 0}">
 
-    <div class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 0}"></div>
+    <!--<div class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 0}"></div>-->
 
-    <img class="beauty" src="../../static/img/beauty.png" alt="money">
+    <img ref="beauty" class="beauty" src="../../static/img/beauty.png" alt="money">
+    <p>score: <span>{{score}}</span></p>
 
   </div>
 </template>
@@ -13,14 +14,20 @@
 export default {
   data () {
     return {
-      posArr: []
+      posArr: [],
+      count: 0,
+      score: 0
     }
   },
   mounted () {
-    this.posArr = this.getRandomXpos(5)
-    setTimeout(() => {
-      this.getElements()
-    }, 2000)
+    setInterval(() => {
+      this.getRandomXpos(5).map(item => {
+        this.posArr.push(item)
+      })
+      setTimeout(() => {
+        this.getElements()
+      }, 0)
+    }, 1000)
   },
   methods: {
     execute (count) {
@@ -36,18 +43,36 @@ export default {
     getElements () {
       var elements = document.getElementsByClassName('moneydiv')
       for (let i = 0; i < elements.length; i++) {
-        this.changeHeightPos(elements[i])
+        if (elements[i].style.top === '0px') {
+          this.count++
+          this.changeHeightPos(elements[i], this.count)
+        }
       }
     },
 
-    changeHeightPos (ele) {
+    changeHeightPos (ele, i) {
       let height = 0
-      setInterval(() => {
+      let key = 'interval' + i
+      key = setInterval(() => {
         height += 10
         if (parseInt(ele.style.top) < 430) {
-          ele.style.top = height + 'px'
+//          console.log(ele)
+          if (ele.offsetLeft > 50 && ele.offsetLeft < 100 && ele.offsetTop + 100 > 480) {
+            console.log(this.$refs.beauty)
+            console.log(this.$refs.beauty.offsetLeft)
+            console.log(ele.offsetLeft, ele.offsetTop)
+            this.score += 10
+            if (ele) {
+              clearInterval(key)
+              ele.parentNode.removeChild(ele)
+            }
+          } else {
+            ele.style.top = height + 'px'
+          }
+//          ele.style.top = height + 'px'
         } else {
           if (ele) {
+            clearInterval(key)
             ele.parentNode.removeChild(ele)
           }
         }
@@ -88,6 +113,15 @@ export default {
     bottom: -30px;
     width: 100px;
     height: 150px;
+  }
+
+  p{
+    color: red;
+    float: right;
+    z-index: 98999;
+  }
+  span{
+    color: yellow;
   }
 
 </style>
