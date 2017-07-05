@@ -1,6 +1,7 @@
 <template>
-  <div class="game">
-    <img src="../../static/img/money.png" alt="money" class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 0}">
+  <div ref="game" class="game">
+    <img ref="fundResources" src="../../static/img/fund-sources.png" alt="fund-resources" class="fund-resources" style="left: 100px;">
+    <img src="../../static/img/money.png" alt="money" class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 63}">
 
     <!--<div class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 0}"></div>-->
 
@@ -16,18 +17,24 @@ export default {
     return {
       posArr: [],
       count: 0,
-      score: 0
+      score: 0,
+      flag: true,
+      fund: true
     }
   },
   mounted () {
     setInterval(() => {
-      this.getRandomXpos(5).map(item => {
-        this.posArr.push(item)
-      })
+//      this.getRandomXpos(5).map(item => {
+//        this.posArr.push(item)
+//      })
+      this.moveFoundResources()
       setTimeout(() => {
         this.getElements()
       }, 0)
-    }, 1000)
+    }, 300)
+    setInterval(() => {
+      this.moveBeauty()
+    }, 200)
   },
   methods: {
     execute (count) {
@@ -40,27 +47,72 @@ export default {
       }
       return posArr
     },
+    moveFoundResources () {
+      let step = 25
+      let x = this.$refs.fundResources.offsetLeft
+      if (this.fund) {
+        if (x + 100 > 320) {
+          this.fund = false
+          x -= step
+        } else {
+          x += step
+        }
+      } else {
+        if (x < -20) {
+          this.fund = true
+          x += step
+        } else {
+          x -= step
+        }
+      }
+      let y = x + 50
+      x += 'px'
+      this.$refs.fundResources.style.left = x
+      this.posArr.push(y)
+    },
+    moveBeauty () {
+      let step = 10
+      let x = this.$refs.beauty.offsetLeft
+      if (this.flag) {
+        if (x + 90 > 320) {
+          this.flag = false
+          x -= step
+        } else {
+          x += step
+        }
+      } else {
+        if (x < 0) {
+          this.flag = true
+          x += step
+        } else {
+          x -= step
+        }
+      }
+      x += 'px'
+      this.$refs.beauty.style.left = x
+    },
     getElements () {
       var elements = document.getElementsByClassName('moneydiv')
       for (let i = 0; i < elements.length; i++) {
-        if (elements[i].style.top === '0px') {
+        if (elements[i].offsetTop === 63) {
           this.count++
           this.changeHeightPos(elements[i], this.count)
         }
       }
     },
-
     changeHeightPos (ele, i) {
-      let height = 0
+      let height = 63
       let key = 'interval' + i
       key = setInterval(() => {
-        height += 10
-        if (parseInt(ele.style.top) < 430) {
+        height += 15
+        if (ele.offsetTop < 500) {
 //          console.log(ele)
-          if (ele.offsetLeft > 50 && ele.offsetLeft < 100 && ele.offsetTop + 100 > 480) {
-            console.log(this.$refs.beauty)
-            console.log(this.$refs.beauty.offsetLeft)
-            console.log(ele.offsetLeft, ele.offsetTop)
+          let start = this.$refs.beauty.offsetLeft
+          let end = start + this.$refs.beauty.width
+          if (ele.offsetLeft >= start && ele.offsetLeft <= end && ele.offsetTop + 100 > 480) {
+//            console.log(this.$refs.beauty)
+//            console.log(this.$refs.beauty.offsetLeft)
+//            console.log(ele.offsetLeft, ele.offsetTop)
             this.score += 10
             if (ele) {
               clearInterval(key)
@@ -98,14 +150,13 @@ export default {
     height: 50px;
 
   }
-
   .moneydiv{
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background: #fff;
     position: absolute;
-    top: 0px;
+    top: 63px;
     left:0;
   }
   .beauty{
@@ -113,6 +164,13 @@ export default {
     bottom: -30px;
     width: 100px;
     height: 150px;
+  }
+  .fund-resources{
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    top: -33px;
+    /*left: 100px;*/
   }
 
   p{
