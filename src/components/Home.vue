@@ -17,15 +17,15 @@
 import { Group, Cell, Grid, GridItem, Divider, Panel, Card, Swiper } from 'vux'
 const baseList = [{
   url: 'javascript:',
-  img: 'https://static.vux.li/demo/1.jpg',
+  img: '../static/life/IMG_2289.jpg',
   title: '送你一朵fua'
 }, {
   url: 'javascript:',
-  img: 'https://static.vux.li/demo/2.jpg',
+  img: '../static/life/IMG_2290.jpg',
   title: '送你一辆车'
 }, {
   url: 'javascript:',
-  img: 'https://static.vux.li/demo/3.jpg',
+  img: '../static/life/IMG_2074.jpg',
   title: '送你一次旅行'
 }]
 
