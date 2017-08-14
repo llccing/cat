@@ -4,6 +4,8 @@
 
 ## 预览
 
+[链接1](http://blog.party90.com/cat/dist/#/Home) 或者 [链接2](http://llccing.github.io/cat/dist/#/Home)
+
 ![二维码](https://github.com/llccing/cat/blob/master/dist/static/img/erweima.png?raw=true)
 
 ## Build Setup
