@@ -13,9 +13,11 @@ import GirlResume from '@/components/GirlResume'
 import BoyResume from '@/components/BoyResume'
 import Photos from '@/components/Photos'
 import { sync } from 'vuex-router-sync'
+import axios from 'axios'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.use(axios)
 
 // store 要注册到Vue实例中！
 let store = new Vuex.Store({

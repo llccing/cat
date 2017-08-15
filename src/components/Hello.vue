@@ -1,6 +1,8 @@
 <template>
   <div class="wrap">
-    
+    <div v-text="response">
+
+    </div>
     <group>
       <x-input title="内容：" v-model="value"></x-input>
     </group>
@@ -11,7 +13,7 @@
 
 <script>
 import { XInput, XButton, Group } from 'vux'
-// 引入 ajax。
+import axios from 'axios'
 
 export default {
   components: {
@@ -21,12 +23,27 @@ export default {
   },
   data () {
     return {
-      value: ''
+      value: '',
+      response: ''
     }
   },
   methods: {
     sendMsg () {
       // add mothod
+      let url = 'http://www.tuling123.com/openapi/api'
+      let data = {
+        'key': '953238a43a3a4206bdd6a35876a61a84',
+        'info': this.value,
+        // Ioc:'', 位置[可选]
+        'userid': '125305'
+      }
+      axios.get(url, {
+        params: data
+      }).then(data => {
+        return data.data
+      }).then(data => {
+        this.response = data.text
+      })
     }
   }
 }
