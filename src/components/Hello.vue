@@ -1,26 +1,31 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+  <div class="wrap">
+    
     <group>
       <x-input title="内容：" v-model="value"></x-input>
     </group>
 
-    <x-button type="primary">发送内容</x-button>
+    <x-button type="primary" @click.native="sendMsg">发送内容</x-button>
   </div>
 </template>
 
 <script>
-import { XInput, XButton } from 'vux'
+import { XInput, XButton, Group } from 'vux'
 
 export default {
   components: {
     XInput,
-    XButton
+    XButton,
+    Group
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      value: ''
+    }
+  },
+  methods: {
+    sendMsg () {
+      this.value = 'asd;lfkja;sldkfj'
     }
   }
 }
@@ -28,21 +33,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+  .wrap{
+    background-color: #f7f7f7;
+  }
 </style>
