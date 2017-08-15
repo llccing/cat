@@ -11,6 +11,7 @@
 
 <script>
 import { XInput, XButton, Group } from 'vux'
+// 引入 ajax。
 
 export default {
   components: {
@@ -25,7 +26,7 @@ export default {
   },
   methods: {
     sendMsg () {
-      this.value = 'asd;lfkja;sldkfj'
+      // add mothod
     }
   }
 }
