@@ -1,8 +1,9 @@
 <template>
   <div class="wrap">
-    <div v-text="response">
+    <div  v-text="response">
 
     </div>
+    <a v-if="!!url" href="url">去看看</a>
     <group>
       <x-input title="内容：" v-model="value"></x-input>
     </group>
@@ -24,7 +25,8 @@ export default {
   data () {
     return {
       value: '',
-      response: ''
+      response: '',
+      url: ''
     }
   },
   methods: {
@@ -43,6 +45,10 @@ export default {
         return data.data
       }).then(data => {
         this.response = data.text
+        if (data.url) {
+          console.log(data.url)
+          this.url = data.url
+        }
       })
     }
   }
