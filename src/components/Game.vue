@@ -1,17 +1,18 @@
 <template>
   <div ref="game" class="game">
-    <img ref="fundResources" src="../../static/img/fund-sources.png" alt="fund-resources" class="fund-resources" style="left: 100px;">
-    <img src="../../static/img/money.png" alt="money" class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 63}">
+    <img ref="fundResources" src="../../public/img/fund-sources.png" alt="fund-resources" class="fund-resources" style="left: 100px;">
+    <img src="../../public/img/money.png" alt="money" class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 63}">
 
     <!--<div class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 0}"></div>-->
 
-    <img ref="beauty" class="beauty" src="../../static/img/beauty.png" alt="money">
+    <img ref="beauty" class="beauty" src="../../public/img/beauty.png" alt="money">
     <p>score: <span>{{score}}</span></p>
 
   </div>
 </template>
 
 <script>
+import { clearInterval } from 'timers';
 export default {
   data () {
     return {
@@ -19,22 +20,27 @@ export default {
       count: 0,
       score: 0,
       flag: true,
-      fund: true
+      fund: true,
+      timer1: null,
+      timer2: null,
+      timer3: null,
     }
   },
   mounted () {
-    setInterval(() => {
-//      this.getRandomXpos(5).map(item => {
-//        this.posArr.push(item)
-//      })
-      this.moveFoundResources()
-      setTimeout(() => {
-        this.getElements()
-      }, 0)
-    }, 300)
-    setInterval(() => {
-      this.moveBeauty()
-    }, 200)
+//     this.timer1 = setInterval(() => {
+// //      this.getRandomXpos(5).map(item => {
+// //        this.posArr.push(item)
+// //      })
+//       this.moveFoundResources()
+      
+//       this.timer2 = setTimeout(() => {
+//         this.getElements()
+//       }, 0)
+//     }, 300)
+
+//      this.timer3 =  setInterval(() => {
+//       this.moveBeauty()
+//     }, 200)
   },
   methods: {
     execute (count) {
@@ -96,7 +102,7 @@ export default {
       for (let i = 0; i < elements.length; i++) {
         if (elements[i].offsetTop === 63) {
           this.count++
-          this.changeHeightPos(elements[i], this.count)
+          // this.changeHeightPos(elements[i], this.count)
         }
       }
     },
@@ -130,6 +136,11 @@ export default {
         }
       }, 200)
     }
+  },
+  beforeDestroy(){
+    clearInterval(this.timer1)
+    clearInterval(this.timer2)
+    clearInterval(this.timer3)
   }
 }
 </script>

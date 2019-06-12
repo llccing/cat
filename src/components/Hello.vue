@@ -1,26 +1,18 @@
 <template>
   <div class="wrap">
-    <div  v-text="response">
+    <div  v-text="response"></div>
+    <h3>this is home page</h3>
 
-    </div>
-    <a v-if="!!url" href="url">去看看</a>
-    <group>
-      <x-input title="内容：" v-model="value"></x-input>
-    </group>
 
-    <x-button type="primary" @click.native="sendMsg">发送内容</x-button>
+    <!-- <x-button type="primary" @click.native="sendMsg">发送内容</x-button> -->
   </div>
 </template>
 
 <script>
-import { XInput, XButton, Group } from 'vux'
 import axios from 'axios'
 
 export default {
   components: {
-    XInput,
-    XButton,
-    Group
   },
   data () {
     return {

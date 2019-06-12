@@ -1,7 +1,7 @@
 <template>
   <div class="list">
-    <Swiper :list="baseList" :interval="interval" auto="auto"></Swiper>
-    <divider>~~~~</divider>
+    <!-- <Swiper :list="baseList" :interval="interval" auto="auto"></Swiper> -->
+    <!-- <divider>~~~~</divider> -->
 
     <div class="head">
       <img src="../assets/img/resume-girl.jpg" alt="头像">
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import { Group, Cell, Grid, GridItem, Divider, Panel, Card, Swiper } from 'vux'
 const baseList = [{
   url: 'javascript:',
   img: 'http://7xst43.com1.z0.glb.clouddn.com/IMG_2289.JPG',
@@ -31,14 +30,6 @@ const baseList = [{
 
 export default {
   components: {
-    Group,
-    Cell,
-    Grid,
-    GridItem,
-    Divider,
-    Panel,
-    Card,
-    Swiper
   },
   data () {
     return {

@@ -1,21 +1,21 @@
 <template>
   <div class="photos">
-          <card v-for="item in img" :key="item.date">
+          <div v-for="item in img" :key="item.date">
               <img slot="header" :src="item.url">
               <div slot="content" class="card-padding">
                   <p class="p1">{{item.date}}</p>
                   <p class="p2">{{item.desc}}</p>
               </div>
-          </card>
+          </div>
 	</div>
 </template>
 
 
 <script>
-  import { Card } from 'vux'
+  // import { Card } from 'vux'
   export default {
     components: {
-      Card
+      // Card
     },
     data () {
       var imgUrl = [
