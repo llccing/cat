@@ -1,11 +1,11 @@
 <template>
   <div ref="game" class="game">
-    <img ref="fundResources" src="../../public/img/fund-sources.png" alt="fund-resources" class="fund-resources" style="left: 100px;">
-    <img src="../../public/img/money.png" alt="money" class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 63}">
+    <img ref="fundResources" src="../../../public/img/fund-sources.png" alt="fund-resources" class="fund-resources" style="left: 100px;">
+    <img src="../../../public/img/money.png" alt="money" class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 63}">
 
     <!--<div class="moneydiv" v-for="item in posArr" :style="{left:item+'px',top: 0}"></div>-->
 
-    <img ref="beauty" class="beauty" src="../../public/img/beauty.png" alt="money">
+    <img ref="beauty" class="beauty" src="../../../public/img/beauty.png" alt="money">
     <p>score: <span>{{score}}</span></p>
 
   </div>

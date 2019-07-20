@@ -24,9 +24,9 @@
       </tabbar-item>
     </tabbar> -->
 
-    <van-tabbar v-model="active">
+    <van-tabbar fixed v-model="active">
       <van-tabbar-item to="/" icon="home-o">我和她</van-tabbar-item>
-      <van-tabbar-item to="/photos" icon="search">生活</van-tabbar-item>
+      <van-tabbar-item to="/life" icon="search">生活</van-tabbar-item>
       <van-tabbar-item to="/game" icon="friends-o">游戏</van-tabbar-item>
     </van-tabbar>
 
@@ -82,8 +82,8 @@ export default {
     overflow-x: hidden;
     margin:0;
   }
+  
   .router-view{
-    padding-top: 22px;
-    padding-bottom: 26px;
+    padding: 46px 10px 50px;
   }
 </style>
