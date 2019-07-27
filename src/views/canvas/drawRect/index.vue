@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import MyCanvas from "../logic/index";
+import MyCanvas from "@/views/canvas/logic/index";
 import fillWithImage from './components/fillWithImage'
 export default {
   data() {

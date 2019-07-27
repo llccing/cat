@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import MyCanvas from './logic/index'
+import MyCanvas from "@/views/canvas/logic/index";
 export default {
   methods: {
     onClickLeft() {
