@@ -6,18 +6,28 @@
 
     <h4>grid</h4>
     <grid/>
+
+    <h4>坐标轴</h4>
+    <axis/>
+
+    <h4>鼠标点击画线</h4>
+    <mouseDrawLine/>
   </div>
 </template>
 <script>
 import MyCanvas from "@/views/canvas/logic/index";
 import grid from './components/grid'
+import axis from './components/axis'
+import mouseDrawLine from './components/mouseDrawLine'
 
 export default {
   data() {
     return {};
   },
   components: {
-    grid
+    grid,
+    axis,
+    mouseDrawLine,
   },
   methods: {
     onClickLeft() {
@@ -48,8 +58,11 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="less">
 #canvas {
   transform: translate(-12px, 0);
+}
+canvas{
+  border: 1px dashed burlywood;
 }
 </style>
