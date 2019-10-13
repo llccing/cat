@@ -15,7 +15,6 @@
           <h4 class="weui-media-box__title">基本信息</h4>
           <p class="weui-media-box__desc">男|未婚|1992年1月生| 户口：黑龙江-齐齐哈尔| 现居住于:北京-海淀区</p>
           <p class="weui-media-box__desc">2年工作经验</p>
-          <p class="weui-media-box__desc">13520348790</p>
           <p class="weui-media-box__desc">E-mail：lcf33123@foxmail.com</p>
         </div>
         <div class="weui-media-box weui-media-box_text">
@@ -35,10 +34,6 @@
           <p class="weui-media-box__desc">
             <strong>工作地区：</strong>
             <span>北京</span>
-          </p>
-          <p class="weui-media-box__desc">
-            <strong>期望月薪：</strong>
-            <span>10001-15000元/月</span>
           </p>
           <p class="weui-media-box__desc">
             <strong>目前状况：</strong>
@@ -68,7 +63,6 @@
           <p class="weui-media-box__desc">
             <strong>北京博图纵横科技有限责任公司|前端开发工程师</strong>
           </p>
-          <p class="weui-media-box__desc">行业类别： 互联网/电子商务|职位月薪：8001-10000元/月</p>
           <p class="weui-media-box__desc">
             <strong>工作描述：</strong>
           </p>
